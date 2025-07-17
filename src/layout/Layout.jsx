@@ -1,4 +1,3 @@
-// src/layout/Layout.jsx
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Sidebar from "../components/Sidebar";
@@ -7,20 +6,31 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const isNonMobile = true; // Later you can make this responsive
+  const isNonMobile = true;
 
   return (
-    <Box display="flex" width="100%" height="100%">
+    <Box display="flex" width="100vw" height="100vh" overflow="hidden">
       <Sidebar
         drawerWidth="260px"
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
         isNonMobile={isNonMobile}
       />
-      <Box flexGrow={1}>
-        <Navbar setIsSidebarOpen={setIsSidebarOpen} />
-        <Box m="1.5rem" overflow="auto">
-          <Outlet /> {/* Render current page */}
+
+      {/* Right content (Navbar + main content) */}
+      <Box flexGrow={1} display="flex" flexDirection="column" height="100vh">
+        {/* Fixed Navbar */}
+        <Box position="sticky" top={0} zIndex={1000} bgcolor="background.paper">
+          <Navbar setIsSidebarOpen={setIsSidebarOpen} />
+        </Box>
+
+        {/* Scrollable Outlet content */}
+        <Box
+          flexGrow={1}
+          overflow="auto"
+          p="1.5rem"
+        >
+          <Outlet />
         </Box>
       </Box>
     </Box>
