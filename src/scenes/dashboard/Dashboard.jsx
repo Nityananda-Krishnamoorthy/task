@@ -30,7 +30,7 @@ const Dashboard = () => {
         {/* Main Form - First Row */}
         <Grid container spacing={4}>
           {/* Sender Details (Left) */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{ width: "800px" }}>
             <Typography variant="h6" fontWeight="bold" gutterBottom>
               Sender Details
             </Typography>
@@ -38,17 +38,17 @@ const Dashboard = () => {
             <Typography fontWeight="bold" gutterBottom>
               Sender Name
             </Typography>
-            <TextField fullWidth placeholder="First name" />
+            <TextField fullWidth placeholder="First name" sx={{ width: "400px" }} />
 
             <Typography fontWeight="bold" mt={3} gutterBottom>
               Sender Full Address
             </Typography>
-            <TextField fullWidth multiline rows={3} placeholder="Enter address" />
+            <TextField fullWidth multiline rows={3} placeholder="Enter address"  sx={{ width: "400px" }}/>
 
             <Typography fontWeight="bold" mt={3} gutterBottom>
               Phone Number
             </Typography>
-            <TextField fullWidth placeholder="Number" />
+            <TextField fullWidth placeholder="Number" sx={{ width: "400px" }} />
           </Grid>
 
           {/* Invoice Details (Right) */}
@@ -60,7 +60,7 @@ const Dashboard = () => {
             <Typography fontWeight="bold" gutterBottom>
               Invoice Number
             </Typography>
-            <TextField fullWidth defaultValue="#INV-0758267/90" />
+            <TextField fullWidth defaultValue="#INV-0758267/90"  sx={{ width: "400px" }}/>
 
             <Typography fontWeight="bold" mt={3} gutterBottom>
               Issue Date
@@ -97,23 +97,23 @@ const Dashboard = () => {
 
           {/* Divider Line */}
           <Grid item xs={12}>
-            <Box my={4} borderTop="1px solid" borderColor="divider" />
+            <Box my={4} borderTop="5px solid" borderColor="divider" />
           </Grid>
 
           {/* Issue From / Issue For - Second Row */}
           <Grid container spacing={4} justifyContent="space-between" px={2}>
             {/* Issue From */}
-            <Grid item xs={12} md={5.8}>
+            <Grid item xs={12} md={5} sx={{ width: "780px" }}>
               <Typography variant="h6" fontWeight="bold" gutterBottom>
                 Issue From
               </Typography>
-              <TextField fullWidth placeholder="First name" />
+              <TextField fullWidth placeholder="First name" sx={{ width: "400px" }} />
               <TextField
                 fullWidth
                 multiline
                 rows={2}
                 placeholder="Enter address"
-                sx={{ mt: 2 }}
+                sx={{ mt:2, width: "400px"  }}
               />
             </Grid>
 
