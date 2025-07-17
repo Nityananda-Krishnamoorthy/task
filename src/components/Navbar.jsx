@@ -4,7 +4,7 @@ import {
   LightModeOutlined,
   NotificationsNone,
   SettingsOutlined,
-  PersonOutline,
+  Search,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -12,11 +12,12 @@ import {
   IconButton,
   Box,
   Avatar,
+  InputBase,
   useTheme,
 } from "@mui/material";
 import FlexBetween from "../components/FlexBetween";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode } from "../state"; // Make sure this path is correct
+import { setMode } from "../state";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -33,22 +34,22 @@ const Navbar = () => {
         py: 1,
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* Title */}
-        <Box>
-          <h2 style={{ color: theme.palette.text.primary, fontWeight: 600 }}>
-            INVOICES CREATE
-          </h2>
-        </Box>
+      <Toolbar sx={{ justifyContent: "space-between", flexWrap: "wrap" }}>
+        {/* Title & Search */}
+        <FlexBetween gap="1.5rem">
+          <Box>
+            <h2 style={{ color: theme.palette.text.primary, fontWeight: 600 }}>
+              INVOICES CREATE
+            </h2>
+          </Box>
+
+
+        </FlexBetween>
 
         {/* Right side actions */}
         <FlexBetween gap="1rem">
           <IconButton onClick={() => dispatch(setMode())}>
-            {mode === "dark" ? (
-              <DarkModeOutlined />
-            ) : (
-              <LightModeOutlined />
-            )}
+            {mode === "dark" ? <DarkModeOutlined /> : <LightModeOutlined />}
           </IconButton>
 
           <IconButton>
@@ -66,6 +67,12 @@ const Navbar = () => {
               sx={{ width: 32, height: 32 }}
             />
           </IconButton>
+         
+            <InputBase placeholder="Search..." fullWidth />
+            <IconButton>
+              <Search />
+            </IconButton>
+        
         </FlexBetween>
       </Toolbar>
     </AppBar>
